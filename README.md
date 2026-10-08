@@ -1,72 +1,36 @@
-# sahfamily.my.id
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Landing page resmi dan living archive keluarga **sahfamily.my.id** yang memuat:
-- Kurikulum & apa yang dipelajari anak (Inquiry-based homeschool, coding Scratch, living math, sains alam)
-- Lini masa perjalanan (Journey timeline)
-- Cerita jujur & refleksi tantangan (Struggles, lessons learned, and reality checks)
-- Galeri momen berharga (Privacy-safe scrapbook polaroid & doodle)
-- Rekomendasi tempat wisata slow travel ramah anak (Kid-friendly score, tips logistik)
-- Proporsi anggaran & pengeluaran keluarga (Transparan berbasis persentase tanpa nominal kaku)
-- Kurasi sumber belajar (Buku, aplikasi edukasi, dan gear eksplorasi)
-- Agency showcase badge untuk [sahl-tech](https://sahl.tech)
+## Getting Started
 
----
-
-## Tech Stack
-- **Framework:** [Astro](https://astro.build/) (Static Site Generation / SSG)
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
-- **Typography:** `@fontsource-variable/fredoka` & `@fontsource-variable/nunito`
-- **Bilingual:** Bahasa Indonesia (`/`) & English (`/en/`)
-- **Hosting Target:** Cloudflare Pages
-
----
-
-## Menjalankan Proyek Lokal
+First, run the development server:
 
 ```bash
-cd /root/workspaces/github.com/sahl-tech/sahfamily
-
-# Install dependencies (jika belum)
-npm install
-
-# Jalankan development server
 npm run dev
-
-# Build static output untuk production
-npm run build
-
-# Preview hasil build lokal
-npm run preview
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
----
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deploy ke Cloudflare Pages
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### Opsi 1: Menghubungkan Git Repository via Cloudflare Dashboard
-1. Buka dashboard [Cloudflare Pages](https://dash.cloudflare.com/).
-2. Buat proyek baru dan hubungkan ke repository git `sahl-tech/sahfamily`.
-3. Set pengaturan build:
-   - **Framework preset:** `Astro`
-   - **Build command:** `npm run build`
-   - **Build output directory:** `dist`
-4. Deploy!
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-### Opsi 2: Deploy langsung via Wrangler CLI
-```bash
-npm install -g wrangler
-wrangler pages deploy dist --project-name=sahfamily
-```
+## Learn More
 
----
+To learn more about Next.js, take a look at the following resources:
 
-## Struktur Konten
-Seluruh konten teks disusun rapi dan modular di dalam folder `src/data/`:
-- `src/data/family.ts`: Data profil anggota keluarga
-- `src/data/learning.ts`: 6 pilar pembelajaran anak
-- `src/data/journey.ts`: Milestone perjalanan
-- `src/data/struggles.ts`: Catatan friksi nyata dan takeaways
-- `src/data/moments.ts`: Scrapbook kenangan
-- `src/data/travel.ts`: Rekomendasi destinasi ramah anak
-- `src/data/expense.ts`: Alokasi proporsi biaya hidup & edukasi
-- `src/data/resources.ts`: Daftar buku dan tools kurasi
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
