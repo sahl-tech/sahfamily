@@ -1,0 +1,88 @@
+---
+import { siteConfig, type Lang } from '../data/siteConfig';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<footer class="bg-slate-900 text-slate-300 pt-16 pb-12 mt-auto relative z-10 border-t-4 border-amber-400">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+      
+      <!-- Brand & Story -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-3xl">🏡</span>
+          <span class="font-heading font-black text-2xl tracking-tight text-white">
+            sah<span class="text-rose-400">family</span><span class="text-xs ml-0.5 text-teal-400 font-bold">.my.id</span>
+          </span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed font-medium mb-4">
+          {lang === 'id'
+            ? 'Dokumentasi perjalanan kehidupan keluarga, pembelajaran mandiri anak, dan eksplorasi dunia. Dibangun dengan rasa ingin tahu dan transparansi.'
+            : 'Living chronicle of intentional parenting, self-directed learning, and worldschooling. Crafted with endless curiosity and radical transparency.'}
+        </p>
+        <div class="text-2xs font-bold text-slate-500 uppercase tracking-widest">
+          EST. 2020 • INDONESIA
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-heading font-black text-white text-base mb-4 uppercase tracking-wider text-xs">
+          {lang === 'id' ? 'Navigasi Pintas' : 'Quick Jumps'}
+        </h4>
+        <ul class="space-y-2 text-sm font-semibold">
+          <li><a href="#belajar" class="hover:text-amber-300 transition-colors">→ {lang === 'id' ? 'Kurikulum Belajar Anak' : 'Kids Curriculum'}</a></li>
+          <li><a href="#journey" class="hover:text-amber-300 transition-colors">→ {lang === 'id' ? 'Lini Masa Perjalanan' : 'Journey Timeline'}</a></li>
+          <li><a href="#struggles" class="hover:text-amber-300 transition-colors">→ {lang === 'id' ? 'Tantangan Nyata (Struggles)' : 'Real Struggles'}</a></li>
+          <li><a href="#travel" class="hover:text-amber-300 transition-colors">→ {lang === 'id' ? 'Rekomendasi Slow Travel' : 'Slow Travel Spots'}</a></li>
+          <li><a href="#expense" class="hover:text-amber-300 transition-colors">→ {lang === 'id' ? 'Proporsi Pengeluaran' : 'Budget Economics'}</a></li>
+        </ul>
+      </div>
+
+      <!-- Showcase Sahl-Tech Agency Badge -->
+      <div>
+        <h4 class="font-heading font-black text-white text-base mb-4 uppercase tracking-wider text-xs">
+          {lang === 'id' ? 'Tentang Pembuat' : 'Crafted By'}
+        </h4>
+        <div class="bg-slate-800/80 border-2 border-slate-700 p-5 rounded-2xl">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-lg">⚡</span>
+            <span class="font-extrabold text-white text-sm">sahl-tech Studio</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed font-medium mb-3">
+            {lang === 'id'
+              ? 'Website ini sekaligus menjadi showcase portfolio performa tinggi oleh software agency sahl-tech. Dibangun dengan Astro, TypeScript, dan Tailwind CSS tanpa bloatware.'
+              : 'This website proudly serves as an ultra-fast production showcase by sahl-tech software agency. Built on Astro, TypeScript, and Tailwind CSS with near-instant static delivery.'}
+          </p>
+          <a
+            href={siteConfig.agencyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-900 font-black text-xs transition-transform hover:scale-105 active:scale-95 shadow-sm"
+          >
+            <span>Visit sahl.tech</span>
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-slate-500 text-center sm:text-left">
+      <div>
+        © 2026 sahfamily.my.id. All rights reserved.
+      </div>
+      <div class="flex items-center gap-1">
+        <span>Handcrafted with</span>
+        <span class="text-rose-500">❤️</span>
+        <span>for curious families worldwide.</span>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,108 @@
+---
+import { travelSpots } from '../data/travel';
+import type { Lang } from '../data/siteConfig';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<section id="travel" class="py-16 md:py-24 bg-cyan-50/40 border-y border-cyan-200/60 relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14">
+      <div class="inline-block px-3 py-1 rounded-full bg-cyan-100 text-cyan-800 text-xs font-black uppercase tracking-wider mb-2">
+        {lang === 'id' ? 'Catatan Perjalanan Lambat' : 'Slow Travel Field Guide'}
+      </div>
+      <h2 class="text-3xl md:text-4xl font-black text-slate-900">
+        {lang === 'id' ? 'Rekomendasi Destinasi Ramah Anak' : 'Curated Kid-Friendly Destinations'}
+      </h2>
+      <p class="mt-3 text-slate-600 max-w-xl mx-auto font-medium">
+        {lang === 'id'
+          ? 'Tempat-tempat yang terbukti menyenangkan untuk anak, tidak bikin orang tua stres, dan kaya akan stimulus alam serta budaya.'
+          : 'Battle-tested destinations offering rich tactile wonder, low parental stress, and safe immersion.'}
+      </p>
+    </div>
+
+    <!-- Travel Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      {travelSpots.map((spot) => (
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-cyan-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between custom-card">
+          <div>
+            <!-- Header Card -->
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-cyan-800">{spot.region}</span>
+                <h3 class="text-2xl font-black text-slate-900 flex items-center gap-2">
+                  <span>{spot.destination}</span>
+                  <span class="text-xl">{spot.flagEmoji}</span>
+                </h3>
+              </div>
+              
+              <!-- Kid Friendly Score Pill -->
+              <div class="text-right bg-amber-50 px-3 py-1.5 rounded-2xl border border-amber-200">
+                <div class="text-2xs font-extrabold uppercase text-amber-800">{lang === 'id' ? 'Kid Friendly' : 'Kid Score'}</div>
+                <div class="text-sm font-black text-amber-600">
+                  {'⭐'.repeat(spot.kidFriendlyScore)}
+                </div>
+              </div>
+            </div>
+
+            <!-- Meta Badges -->
+            <div class="grid grid-cols-2 gap-2 mb-4 bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs">
+              <div>
+                <span class="block text-2xs text-slate-400 font-bold uppercase">
+                  {lang === 'id' ? 'Durasi Ideal:' : 'Ideal Stay:'}
+                </span>
+                <span class="font-extrabold text-slate-700">{spot.idealStayDuration[lang]}</span>
+              </div>
+              <div>
+                <span class="block text-2xs text-slate-400 font-bold uppercase">
+                  {lang === 'id' ? 'Musim Terbaik:' : 'Best Season:'}
+                </span>
+                <span class="font-extrabold text-slate-700">{spot.bestSeason[lang]}</span>
+              </div>
+            </div>
+
+            <!-- Why kids love it -->
+            <div class="mb-4">
+              <span class="block text-2xs font-extrabold uppercase text-teal-700 tracking-wider mb-1">
+                🎈 {lang === 'id' ? 'Kenapa Anak Suka:' : 'Why Kids Love It:'}
+              </span>
+              <p class="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
+                {spot.whyKidsLoveIt[lang]}
+              </p>
+            </div>
+
+            <!-- Practical Tips -->
+            <div class="mb-4 bg-amber-50/60 p-3.5 rounded-2xl border border-amber-200/60">
+              <span class="block text-2xs font-extrabold uppercase text-amber-800 tracking-wider mb-2">
+                🧭 {lang === 'id' ? 'Tips Logistik Lapangan:' : 'On-the-Ground Logistics:'}
+              </span>
+              <ul class="space-y-1.5 text-xs text-slate-700 font-medium">
+                {spot.practicalTips[lang].map((tip) => (
+                  <li class="flex items-start gap-1.5">
+                    <span class="text-amber-500 font-bold">•</span>
+                    <span>{tip}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <!-- Tags -->
+          <div class="pt-3 border-t border-slate-100 flex flex-wrap gap-1.5">
+            {spot.tags.map((t) => (
+              <span class="px-2.5 py-1 text-2xs font-bold rounded-lg bg-cyan-50 text-cyan-800 border border-cyan-100">
+                #{t}
+              </span>
+            ))}
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

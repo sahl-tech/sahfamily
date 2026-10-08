@@ -1,0 +1,80 @@
+---
+import { siteConfig, type Lang } from '../data/siteConfig';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const heroText = siteConfig.hero[lang];
+---
+
+<section class="relative pt-8 pb-16 md:pt-14 md:pb-24 overflow-hidden">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+    
+    <!-- Playful Top Badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-900 border-2 border-amber-300 font-extrabold text-xs md:text-sm shadow-xs mb-6 animate-bounce">
+      <span>{heroText.badge}</span>
+    </div>
+
+    <!-- Main Title -->
+    <h1 class="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900 leading-tight md:leading-tight mb-6 max-w-4xl mx-auto tracking-tight">
+      {heroText.title}
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-base sm:text-lg md:text-xl text-slate-700 max-w-2xl mx-auto mb-8 font-medium leading-relaxed">
+      {heroText.subtitle}
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
+      <a
+        href="#belajar"
+        class="px-6 py-3.5 rounded-full bg-rose-500 hover:bg-rose-600 text-white font-extrabold shadow-lg shadow-rose-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2"
+      >
+        <span>🚀</span>
+        <span>{heroText.ctaPrimary}</span>
+      </a>
+      <a
+        href="#struggles"
+        class="px-6 py-3.5 rounded-full bg-white hover:bg-amber-50 text-slate-800 font-extrabold border-2 border-amber-300 shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2"
+      >
+        <span>💡</span>
+        <span>{heroText.ctaSecondary}</span>
+      </a>
+    </div>
+
+    <!-- Playful Banner Card with Family Doodles -->
+    <div class="relative bg-gradient-to-br from-amber-100 via-rose-50 to-teal-100 p-6 sm:p-8 rounded-3xl border-3 border-dashed border-amber-300/80 shadow-inner max-w-3xl mx-auto">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+        <div class="bg-white/90 p-4 rounded-2xl shadow-xs border border-amber-200">
+          <div class="text-3xl sm:text-4xl mb-1">👨‍💻</div>
+          <div class="font-extrabold text-slate-800 text-sm">Ayah</div>
+          <div class="text-xs text-slate-500 font-semibold">{lang === 'id' ? 'Tech & Sistem' : 'Code & Logistics'}</div>
+        </div>
+        <div class="bg-white/90 p-4 rounded-2xl shadow-xs border border-rose-200">
+          <div class="text-3xl sm:text-4xl mb-1">👩‍🏫</div>
+          <div class="font-extrabold text-slate-800 text-sm">Bunda</div>
+          <div class="text-xs text-slate-500 font-semibold">{lang === 'id' ? 'Kurator Belajar' : 'Learning Curator'}</div>
+        </div>
+        <div class="bg-white/90 p-4 rounded-2xl shadow-xs border border-teal-200">
+          <div class="text-3xl sm:text-4xl mb-1">🚀</div>
+          <div class="font-extrabold text-slate-800 text-sm">Kakak (8)</div>
+          <div class="text-xs text-slate-500 font-semibold">{lang === 'id' ? 'Sains & Scratch' : 'Science & Code'}</div>
+        </div>
+        <div class="bg-white/90 p-4 rounded-2xl shadow-xs border border-purple-200">
+          <div class="text-3xl sm:text-4xl mb-1">🎨</div>
+          <div class="font-extrabold text-slate-800 text-sm">Adik (4)</div>
+          <div class="text-xs text-slate-500 font-semibold">{lang === 'id' ? 'Seni & Cerita' : 'Arts & Wonders'}</div>
+        </div>
+      </div>
+      <div class="mt-4 pt-3 border-t border-amber-200/80 text-xs sm:text-sm text-slate-600 font-semibold">
+        {lang === 'id' 
+          ? '📍 Berbasis di Indonesia • Slow Travel • Homeschooling Tanpa Tekanan' 
+          : '📍 Indonesia Based • Slow Worldschooling • Low-Stress Homeschool'}
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import FamilyMembers from '../components/FamilyMembers.astro';
+import LearningCurriculum from '../components/LearningCurriculum.astro';
+import JourneyTimeline from '../components/JourneyTimeline.astro';
+import StrugglesLessons from '../components/StrugglesLessons.astro';
+import MomentsGallery from '../components/MomentsGallery.astro';
+import TravelRecommendations from '../components/TravelRecommendations.astro';
+import ExpenseBreakdown from '../components/ExpenseBreakdown.astro';
+import ResourcesTab from '../components/ResourcesTab.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="sahfamily.my.id — Cerita Belajar, Parenting & Worldschooling Keluarga"
+  description="Catatan perjalanan jujur keluarga: kurikulum apa yang dipelajari anak, suka duka homeschooling, slow travel family-friendly, alokasi anggaran, dan showcase sahl-tech."
+  lang="id"
+>
+  <Navbar lang="id" />
+  <main class="flex-1">
+    <Hero lang="id" />
+    <FamilyMembers lang="id" />
+    <LearningCurriculum lang="id" />
+    <JourneyTimeline lang="id" />
+    <StrugglesLessons lang="id" />
+    <MomentsGallery lang="id" />
+    <TravelRecommendations lang="id" />
+    <ExpenseBreakdown lang="id" />
+    <ResourcesTab lang="id" />
+  </main>
+  <Footer lang="id" />
+</BaseLayout>
